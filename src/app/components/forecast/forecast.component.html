@@ -1,0 +1,63 @@
+<div>
+  <div class="map-block" style="position: relative">
+    <agm-map
+      [latitude]="lat"
+      [longitude]="lon"
+      (mapClick)="onChooseLocation($event)"
+    >
+      <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+    </agm-map>
+  </div>
+
+  <div class="location">
+    <div>
+      <span style="align-items: center; margin-left: 30%">
+        <i style="font-size: 2rem" class="fa-solid fa-location-dot"></i>
+      </span>
+      <p style="font-size: 1.3rem; font-family: 'Roboto'">
+        {{ todaysWeather.city | uppercase }}, {{ todaysWeather.country }}
+      </p>
+    </div>
+  </div>
+  <div
+    class="refresh-option"
+    (click)="onRefresh()"
+    data-toggle="tooltip"
+    title="Refresh Location"
+  >
+    <span>
+      <i class="fa-solid fa-arrows-rotate"></i>
+    </span>
+  </div>
+
+  <div class="today-forecast">
+    <div class="today-weather">
+      <div>
+        <span class="today-temp"> {{ todaysWeather.temp }}° </span>
+        <span class="today-day">{{ todaysWeather.day }}</span>
+      </div>
+      <div>
+        <span>
+          <img [src]="todaysWeather.icon" id="icon" style="width: 100%" />
+        </span>
+        <span style="font-size: 1.3rem; margin-top: -1rem">
+          <i class="fa-solid fa-wind"></i>
+          {{ todaysWeather.speed | number: "1.1-1" }} mph</span
+        >
+      </div>
+    </div>
+    <div *ngFor="let i of forecastList" class="forecast-weather">
+      <span class="forecast-day">
+        {{ i.day | slice: 0:3 }}
+      </span>
+      <span class="forecast-icon">
+        <img
+          [src]="i.icon"
+          id="icon"
+          style="width: 80%; height: 100%; margin-left: 0.9rem"
+        />
+      </span>
+      <span style="font-size: 1.4rem; font-weight: 600"> {{ i.temp }}° </span>
+    </div>
+  </div>
+</div>

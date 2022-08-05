@@ -1,0 +1,46 @@
+/* agm-map {
+  height: 70vh;
+} */
+
+body,
+html {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.container {
+  background: hsla(240, 37%, 12%, 1);
+
+  background: linear-gradient(
+    225deg,
+    hsla(240, 37%, 12%, 1) 27%,
+    hsla(229, 52%, 47%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    225deg,
+    hsla(240, 37%, 12%, 1) 27%,
+    hsla(229, 52%, 47%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    225deg,
+    hsla(240, 37%, 12%, 1) 27%,
+    hsla(229, 52%, 47%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#131329", endColorstr="#3950b6", GradientType=1 );
+}
